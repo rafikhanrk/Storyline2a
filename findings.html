@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Findings - Refugee Housing Crisis Research</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Include JSVectormap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.0.0/jsvectormap.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.0.0/jsvectormap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.0.0/maps/world.js"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Research Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="neighborhoods.html">Neighborhoods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="findings.html">Findings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="results.html">Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <h1 class="mt-5">Findings</h1>
+    <div id="map" style="height: 600px;"></div>
+</main>
+
+<script>
+    var map = new jsVectorMap({
+        selector: "#map",
+        map: "world",
+        markers: [
+            { name: "White Center", coords: [47.5095, -122.3505], refugees: 1000 },
+            { name: "Rainier Beach", coords: [47.5171, -122.2684], refugees: 800 },
+            { name: "Tukwila", coords: [47.4785, -122.2907], refugees: 1200 }
+        ],
+        markerStyle: {
+            initial: {
+                fill: '#FF6347'
+            }
+        },
+        series: {
+            markers: [{
+                attribute: 'r',
+                scale: [5, 15],
+                values: [1000, 800, 1200]
+            }]
+        },
+        onMarkerTipShow: function(e, label, index) {
+            label.html(
+                '<b>' + map.markers[index].config.name + '</b><br>' +
+                'Refugees: ' + map.markers[index].config.refugees
+            );
+        }
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
