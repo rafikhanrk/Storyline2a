@@ -62,40 +62,8 @@
     </div>
 </main>
 
-<script>
-    const scroller = scrollama();
-
-    const scrollyMap = L.map('scrolly-map').setView([47.6062, -122.3321], 10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(scrollyMap);
-
-    scroller
-        .setup({
-            step: ".step",
-            offset: 0.5,
-            debug: true
-        })
-        .onStepEnter(response => {
-            const stepIndex = response.index;
-            switch(stepIndex) {
-                case 0:
-                    scrollyMap.setView([47.5095, -122.3505], 14); // White Center
-                    break;
-                case 1:
-                    scrollyMap.setView([47.5171, -122.2684], 14); // Rainier Beach
-                    break;
-                case 2:
-                    scrollyMap.setView([47.4785, -122.2907], 14); // Tukwila
-                    break;
-            }
-            scrollyMap.once('moveend', () => {
-                scrollyMap.invalidateSize();
-            });
-        });
-</script>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>
