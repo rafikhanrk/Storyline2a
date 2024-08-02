@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Results - Refugee Housing Crisis Research</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Research Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="neighborhoods.html">Neighborhoods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="findings.html">Findings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="results.html">Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <h1 class="mt-5">Results</h1>
+    <section>
+        <h2>Overview of Findings</h2>
+        <p>Here we present the detailed findings from our research...</p>
+    </section>
+    <section>
+        <h2>Graphs and Charts</h2>
+        <canvas id="resultsChart1"></canvas>
+        <canvas id="resultsChart2"></canvas>
+        <canvas id="resultsChart3"></canvas>
+    </section>
+</main>
+
+<script>
+    // Placeholder for Chart.js
+    var ctx1 = document.getElementById('resultsChart1').getContext('2d');
+    var resultsChart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: ['Statistic 1', 'Statistic 2', 'Statistic 3'],
+            datasets: [{
+                label: 'Results 1',
+                data: [12, 19, 3],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var ctx2 = document.getElementById('resultsChart2').getContext('2d');
+    var resultsChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: ['Year 1', 'Year 2', 'Year 3'],
+            datasets: [{
+                label: 'Results 2',
+                data: [3, 10, 5],
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var ctx3 = document.getElementById('resultsChart3').getContext('2d');
+    var resultsChart3 = new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: ['Segment 1', 'Segment 2', 'Segment 3'],
+            datasets: [{
+                label: 'Results 3',
+                data: [5, 15, 7],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
