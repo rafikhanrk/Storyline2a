@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5DC;
+    color: #2C3E50;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #2C3E50;
+    color: #F5F5DC;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #800020;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: #F5F5DC;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #2C3E50;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #800020;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #355E3B;
+    font-size: 1.5em;
+}
+
+section {
+    margin-bottom: 20px;
+    background-color: #D2B48C;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #2C3E50;
+    color: #F5F5DC;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+#statistics, #rainier-valley, #columbia-city, #tukwila, #white-center, #resolution, #country-distribution {
+    margin-bottom: 20px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+#map, #findings-map, #methodologyMap, #scrolly-map {
+    width: 100%;
+    height: 100vh;
+    margin-top: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.box {
+    background-color: #F5F5DC;
+    padding: 15px;
+    border: 1px solid #D2B48C;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#scrolly {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+#map-container {
+    flex: 1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+#scrolly-text {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.step {
+    margin-bottom: 100vh;
+}
+
+.is-active {
+    color: #800020;
+}
