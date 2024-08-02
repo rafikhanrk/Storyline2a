@@ -45,37 +45,8 @@
     <div id="map" style="height: 600px;"></div>
 </main>
 
-<script>
-    var map = new jsVectorMap({
-        selector: "#map",
-        map: "world",
-        markers: [
-            { name: "White Center", coords: [47.5095, -122.3505], refugees: 1000 },
-            { name: "Rainier Beach", coords: [47.5171, -122.2684], refugees: 800 },
-            { name: "Tukwila", coords: [47.4785, -122.2907], refugees: 1200 }
-        ],
-        markerStyle: {
-            initial: {
-                fill: '#FF6347'
-            }
-        },
-        series: {
-            markers: [{
-                attribute: 'r',
-                scale: [5, 15],
-                values: [1000, 800, 1200]
-            }]
-        },
-        onMarkerTipShow: function(e, label, index) {
-            label.html(
-                '<b>' + map.markers[index].config.name + '</b><br>' +
-                'Refugees: ' + map.markers[index].config.refugees
-            );
-        }
-    });
-</script>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>
