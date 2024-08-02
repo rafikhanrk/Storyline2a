@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neighborhoods - Refugee Housing Crisis Research</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/2.2.1/scrollama.min.js"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Research Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="neighborhoods.html">Neighborhoods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="findings.html">Findings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="results.html">Results</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <div id="scroll-visualization" class="row">
+        <div class="col-md-6" id="scrolly">
+            <div id="scrolly-text">
+                <section class="step" data-step="1">
+                    <h3>White Center</h3>
+                    <p>White Center is known for its diverse immigrant population...</p>
+                </section>
+                <section class="step" data-step="2">
+                    <h3>Rainier Beach</h3>
+                    <p>Rainier Beach is home to a significant number of refugees...</p>
+                </section>
+                <section class="step" data-step="3">
+                    <h3>Tukwila</h3>
+                    <p>Tukwila has become a hub for refugee resettlement...</p>
+                </section>
+            </div>
+        </div>
+        <div class="col-md-6" id="map-container">
+            <div id="scrolly-map" style="height: 100vh;"></div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const scroller = scrollama();
+
+    const scrollyMap = L.map('scrolly-map').setView([47.6062, -122.3321], 10);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(scrollyMap);
+
+    scroller
+        .setup({
+            step: ".step",
+            offset: 0.5,
+            debug: true
+        })
+        .onStepEnter(response => {
+            const stepIndex = response.index;
+            switch(stepIndex) {
+                case 0:
+                    scrollyMap.setView([47.5095, -122.3505], 14); // White Center
+                    break;
+                case 1:
+                    scrollyMap.setView([47.5171, -122.2684], 14); // Rainier Beach
+                    break;
+                case 2:
+                    scrollyMap.setView([47.4785, -122.2907], 14); // Tukwila
+                    break;
+            }
+            scrollyMap.once('moveend', () => {
+                scrollyMap.invalidateSize();
+            });
+        });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
